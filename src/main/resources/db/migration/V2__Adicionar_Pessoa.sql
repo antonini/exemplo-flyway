@@ -1,0 +1,1 @@
+INSERT INTO PESSOA (CHAVE, NOME) VALUES (1, 'Adriana'),(2, 'Andre'),(3, 'Bruna'),(4, 'Claudio'),(5, 'Elaine'),(6, 'Fernanda'),(7, 'Gilmara'),(8, 'Henrique'),(9, 'Zeeeee'),(10, 'Larissa'),(11, 'Lucimara'),(12, 'Maria'),(13, 'Patricia'),(14, 'Ronaldo'),(15, 'Sandra'),(16, 'Sandro'),(17, 'Sergio');
