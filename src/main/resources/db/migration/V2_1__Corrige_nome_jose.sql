@@ -1,2 +1,2 @@
 -- Troca o nome do Jose
-UPDATE PESSOA SET NOME = 'Jose' WHERE CHAVE = 9;
+UPDATE PESSOA SET NOME = 'Jose Xavier' WHERE CHAVE = 9;

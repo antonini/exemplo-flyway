@@ -19,7 +19,7 @@ import com.googlecode.flyway.core.Flyway;
  * 
  * @author eantonini
  */
-public class TesteFlyWay {
+public class TesteFlyway {
 
 	// private static final String DB_DRIVER = "org.postgresql.Driver";
 	// private static final String DB_URL_CONNECTION =
@@ -34,7 +34,7 @@ public class TesteFlyWay {
 	/**
 	 * URL de acesso ao banco de dados.
 	 */
-	private static final String DB_URL_CONNECTION = "jdbc:h2:file:target/foobar";
+	private static final String DB_URL_CONNECTION = "jdbc:h2:file:target/exemplo-flyway";
 	/**
 	 * Usuario de acesso ao banco de dados.
 	 */
@@ -46,12 +46,18 @@ public class TesteFlyWay {
 
 	public static void main(String[] args) throws SQLException,
 			ClassNotFoundException {
+
+		// Instancia o Flyway.
 		Flyway flyway = new Flyway();
 
+		// Atribui as informacoes de conectividade a ferramenta.
 		flyway.setDataSource(DB_URL_CONNECTION, DB_USER, DB_PASSWORD);
 
+		// Executa processo de validacao.
 		flyway.migrate();
 
+		// Executa o metodo que ira exibir as pessoas encontradas no banco de
+		// dados.
 		exibePessoas();
 	}
 
@@ -70,7 +76,7 @@ public class TesteFlyWay {
 				DB_PASSWORD);
 
 		PreparedStatement ps = connection
-				.prepareStatement("SELECT CHAVE, NOME FROM PESSOA ORDER BY CHAVE ASC");
+				.prepareStatement("SELECT CHAVE, NOME, SOBRENOME FROM PESSOA ORDER BY CHAVE ASC");
 
 		ResultSet rs = ps.executeQuery();
 
@@ -78,7 +84,9 @@ public class TesteFlyWay {
 			System.out.print("Chave: ");
 			System.out.print(rs.getInt("CHAVE"));
 			System.out.print(", Nome: ");
-			System.out.println(rs.getString("NOME"));
+			System.out.print(rs.getString("NOME"));
+			System.out.print(", Sobrenome: ");
+			System.out.println(rs.getString("SOBRENOME"));
 		}
 
 		connection.close();
